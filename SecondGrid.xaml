@@ -1,0 +1,45 @@
+﻿<Page x:Class="UP_4.SecondGrid"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UP_4"
+      mc:Ignorable="d" 
+     d:DesignHeight="600" d:DesignWidth="600"
+      Title="SecondGrid">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="320*"/>
+            <RowDefinition Height="30*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="320*"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox x:Name="forSearch" VerticalContentAlignment="Center"/>
+        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="20,20,20,20" Grid.Column="1">
+            <Button x:Name="forGrid" FontSize="16px" Grid.Row="0" Grid.Column="1" Content="ПОИСК" Margin="9,9,9,9" Background="White" BorderBrush="White" Foreground="Black" Click="forGrid_Click"/>
+        </Border>
+
+        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="20,20,20,20" Grid.Row="1"  Grid.Column="1">
+            <Button x:Name="forClean" FontSize="16px" Grid.Row="1" Grid.Column="1" Content="ОЧИСТИТЬ" Margin="9,9,9,9" Background="White" BorderBrush="White" Foreground="Black" Click="forClean_Click" />
+        </Border>
+
+        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="20,20,20,20" Grid.Column="1" Grid.Row="3">
+            <Button x:Name="forExit" FontSize="16px" Grid.Row="0" Grid.Column="0" Content="ВЫЙТИ" Margin="9,9,9,9" Background="White" BorderBrush="White" Foreground="Black" Click="forExit_Click"/>
+        </Border>
+
+        <ComboBox x:Name="ProductsComboBox" Grid.Row="1"  Grid.Column="0" SelectionChanged="ProductsComboBox_SelectionChanged" />
+
+        <DataGrid x:Name="ProductsDataGrid" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,0,0,47" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название Продукта" Binding="{Binding ProductName}" />
+                <DataGridTextColumn Header="Цена Продукта" Binding="{Binding PriceProduct}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
